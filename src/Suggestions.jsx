@@ -1,6 +1,8 @@
+// src/Suggestions.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import headerImage from './assets/Happy.png'; // Import the header image
+import headerImage from './assets/Happy.png';
+import PhotoSlideshow from './PhotoSlideshow'; // Import the slideshow component
 import './App.css';
 
 function Suggestions() {
@@ -12,14 +14,20 @@ function Suggestions() {
 
   return (
     <div className="full-screen-container">
-      <img src={headerImage} alt="Header" className="header-image" />
-      
+      {/* Insert the photo slideshow */}
+      <PhotoSlideshow />
+
       <h1>Valentine's Day Suggestions</h1>
-      <ul>
-        <li>Dinner with oysters</li>
-        <li>Romantic movie night</li>
-        <li>Fun date at Natick Mall</li>
-      </ul>
+      <li>
+        Getting Oysters
+      </li>
+      <li>
+        Fun Date at Level 99
+      </li>
+      <li>
+        Romantic Movie Night
+      </li>
+
       <button onClick={handleBackClick} className="back-button">
         Back to Home
       </button>

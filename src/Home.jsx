@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+// src/Home.jsx
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import headerImage from './assets/StareDown.png'; 
+import MusicMoodIntegration from './MusicMoodIntegration';
 import './App.css';
 
 function Home() {
@@ -9,6 +11,19 @@ function Home() {
     top: '200px'
   });
   const navigate = useNavigate();
+
+  // Unmute the background music on first user interaction
+  useEffect(() => {
+    const unmuteAudio = () => {
+      const audio = document.getElementById('bg-music');
+      if (audio && audio.muted) {
+        audio.muted = false;
+      }
+      document.removeEventListener('click', unmuteAudio);
+    };
+    document.addEventListener('click', unmuteAudio);
+    return () => document.removeEventListener('click', unmuteAudio);
+  }, []);
 
   const handleYesClick = () => {
     navigate('/suggestions');
@@ -39,10 +54,23 @@ function Home() {
 
   return (
     <div className="full-screen-container">
-      {/* Use the imported image */}
+      {/* Header Image */}
       <img src={headerImage} alt="Header" className="header-image" />
       
       <h1>Will you be my Valentine?</h1>
+      
+      {/* Background Music Element */}
+      {/* Place your MP3 file (romantic.mp3) in the public folder */}
+      <audio
+        id="bg-music"
+        src="/BackgroundMusic.mp3"
+        autoPlay
+        loop
+        muted
+        style={{ display: 'none' }}  // Hide audio controls
+      ></audio>
+      
+      {/* Yes/No Buttons */}
       <div className="button-container" style={{ position: 'relative', width: '100%', height: '100%' }}>
         <button className="yes-button" onClick={handleYesClick}>
           Yes
@@ -60,6 +88,9 @@ function Home() {
           No
         </button>
       </div>
+      
+      {/* Music Mood Integration Component */}
+      <MusicMoodIntegration />
     </div>
   );
 }

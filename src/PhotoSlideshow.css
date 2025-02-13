@@ -1,0 +1,19 @@
+/* src/PhotoSlideshow.css */
+.photo-slideshow {
+    width: 400px;       /* Fixed width for the slideshow container */
+    height: 300px;      /* Fixed height for the slideshow container */
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background: #f0f0f0; /* Optional: a background color while images load */
+  }
+  
+  .photo-slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Ensures the image covers the container without distorting, cropping as necessary */
+    display: block;
+    transition: opacity 1s ease-in-out;
+  }
+  

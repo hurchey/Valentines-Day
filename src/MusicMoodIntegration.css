@@ -1,0 +1,23 @@
+/* src/MusicMoodIntegration.css */
+.music-mood-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .mute-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mute-button:hover {
+    background-color: #d6336c;
+  }
+  
